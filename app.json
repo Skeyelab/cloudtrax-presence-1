@@ -1,0 +1,10 @@
+{
+  "name": "Cloudtrax Presence Collector",
+  "repository": "https://github.com/Skeyelab/cloudtrax-presence-php",
+  "addons" : [
+  {
+      "plan": "clouddb:ignite",
+      "as": "CLOUDDB"
+    }]
+
+}
