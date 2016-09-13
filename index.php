@@ -73,8 +73,10 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 
-echo hash_hmac('sha256', $jsondata, 'none');
-echo '<br/>';
-echo $_SERVER['HTTP_SIGNATURE'];
+// echo hash_hmac('sha256', $jsondata, 'none');
+// echo '<br/>';
+// echo $_SERVER['HTTP_SIGNATURE'];
+
+echo $jsondata;
 
 ?> 
