@@ -15,5 +15,11 @@
   ],
   "scripts": {
   	"postdeploy": "php -f ./initial_run.php"
-  }
+  },
+  "env": {
+    "CLOUDTRAX_PR_KEY": {
+      "description": "Set this as the Key in your Cloudtrax Presence Reporting settings.",
+      "generator": "secret"
+    }
+}
 }
