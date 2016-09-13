@@ -43,7 +43,7 @@ $sql =  "INSERT INTO presence_header (network_id, node_mac, version)
 VALUES ('$network_id', '$node_mac', '$version')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    #echo "New record created successfully";
 	$headerid = mysqli_insert_id($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -65,12 +65,15 @@ $sql =  "INSERT INTO presence_detail (id_presence_header, mac, count, min_signal
 VALUES ('$headerid', '$mac', '$count', '$min_signal', '$max_signal', '$avg_signal', '$first_seen', '$last_seen', '$associated', '')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New detail record created successfully";
+    #echo "New detail record created successfully";
 } else {
     $error = "Error: " . $sql . "<br>" . $conn->error;
   file_put_contents('error.txt', $error);
 }
 }
 $conn->close();
+
+echo hash_hmac('sha256', $jsondata, 'none')
+
 
 ?> 
