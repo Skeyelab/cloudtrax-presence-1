@@ -10,8 +10,8 @@ $serializedData = serialize($jsondata); //where '$array' is your array
 if ($jsondata == "") {
 	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
 	echo 'https://'. $_SERVER['SERVER_NAME'].'<br/>';
-	echo 'You can get your Cloudtrax Presence Reporting Key from the Heroku dashboard for this app.<br/>';
 	echo '<br/>';
+	echo 'You can get your Cloudtrax Presence Reporting Key from the Heroku dashboard for this app.<br/>';
 	echo '<br/>';
 	echo 'To access your data, you can get your MySQL credentials from your Heroku dashboard for this app.';
 	exit;
