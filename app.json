@@ -1,10 +1,13 @@
 {
   "name": "Cloudtrax Presence Collector",
+    "description": "This will setup a database and end point to collect Cloudtrax Presence Reporting data into a MySQL DB",
+
   "repository": "https://github.com/Skeyelab/cloudtrax-presence-php",
   "addons" : [
   {
       "plan": "cleardb:ignite",
       "as": "CLEARDB"
-    }]
+    }],
+  "success_url": "/initial_run.php",
 
 }
