@@ -35,7 +35,7 @@ $conn = new mysqli($url['host'], $url['user'], $url['pass'], substr($url['path']
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$sql =  "CREATE TABLE IF NOT EXISTS `access_points` (
+$sql1 =  "CREATE TABLE IF NOT EXISTS `access_points` (
   `Access_Point_ID` int(6) DEFAULT NULL,
   `MAC_Address` varchar(17) DEFAULT NULL,
   `Access_Point_Name` varchar(27) DEFAULT NULL,
@@ -60,9 +60,9 @@ $sql =  "CREATE TABLE IF NOT EXISTS `access_points` (
   `Download_Bytes` bigint(10) DEFAULT NULL,
   `Upload_Bytes` int(10) DEFAULT NULL,
   `Total_Bytes` bigint(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-CREATE TABLE IF NOT EXISTS `presence_detail` (
+$sql2 = "CREATE TABLE IF NOT EXISTS `presence_detail` (
   `id_presence_detail` int(11) NOT NULL AUTO_INCREMENT,
   `id_presence_header` int(11) NOT NULL,
   `mac` varchar(64) CHARACTER SET latin1 NOT NULL,
@@ -75,22 +75,37 @@ CREATE TABLE IF NOT EXISTS `presence_detail` (
   `associated` varchar(64) CHARACTER SET latin1 NOT NULL,
   `timestamp_detail` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_presence_detail`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-CREATE TABLE IF NOT EXISTS `presence_header` (
+$sql3 = "CREATE TABLE IF NOT EXISTS `presence_header` (
   `id_presence_header` int(11) NOT NULL AUTO_INCREMENT,
   `network_id` int(11) NOT NULL,
   `node_mac` varchar(64) CHARACTER SET latin1 NOT NULL,
   `version` varchar(64) CHARACTER SET latin1 NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_presence_header`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Tables created successfully";
+if ($conn->query($sql1) === TRUE) {
+    echo "access_points Table created successfully";
 	$headerid = mysqli_insert_id($conn);
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+if ($conn->query($sql2) === TRUE) {
+    echo "presence_detail Table created successfully";
+  $headerid = mysqli_insert_id($conn);
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+if ($conn->query($sql3) === TRUE) {
+    echo "presence_header Table created successfully";
+  $headerid = mysqli_insert_id($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
