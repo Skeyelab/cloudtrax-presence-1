@@ -33,7 +33,9 @@ if ($conn->connect_error) {
 
 if ($network_id == 0) {
 	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
-	echo 'http://'. $_SERVER['SERVER_NAME'];
+	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/';
+	echo '<br/>'
+	echo 'To access your data, you can get your MySQL credentials from your Heroku dashboard for this app.'
 	break;
 }
 
