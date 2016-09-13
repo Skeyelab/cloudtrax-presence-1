@@ -1,9 +1,4 @@
 <?php 
-$servername = "us-cdbr-iron-east-04.cleardb.net";
-$username = "bbde8408e45097";
-$password = "4c985d7a";
-$dbname = "heroku_2e1b0ff86f97c10";
-
 $jsondata = file_get_contents("php://input");
 $data = json_decode($jsondata, true);
 
@@ -111,4 +106,4 @@ if ($conn->query($sql3) === TRUE) {
 }
 
 echo "You can now configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
-echo 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+echo 'http://'. $_SERVER['SERVER_NAME'];
