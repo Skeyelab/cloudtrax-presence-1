@@ -35,6 +35,11 @@ $conn = new mysqli($url['host'], $url['user'], $url['pass'], substr($url['path']
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
+if ($network_id == 0) {
+	break;
+}
+
 $sql =  "INSERT INTO presence_header (network_id, node_mac, version)
 VALUES ('$network_id', '$node_mac', '$version')";
 
