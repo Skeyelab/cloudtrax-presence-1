@@ -4,8 +4,7 @@
   "repository": "https://github.com/Skeyelab/cloudtrax-presence-php",
   "addons": [
     {
-      "plan": "cleardb:ignite",
-      "as": "CLEARDB"
+      "plan": "cleardb:ignite"
     }
   ],
   "success_url": "/initial_run.php",
