@@ -37,6 +37,7 @@ if ($conn->connect_error) {
 } 
 
 if ($network_id == 0) {
+	echo "No data";
 	break;
 }
 
