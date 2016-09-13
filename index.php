@@ -31,8 +31,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-if ($network_id == 0) {
-	echo $jsondata;
+if ($jsondata == "") {
 	echo "------";
 	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
 	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
