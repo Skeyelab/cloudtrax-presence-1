@@ -36,7 +36,7 @@ if ($jsondata == "") {
 	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
 	echo '<br/>';
 	echo 'To access your data, you can get your MySQL credentials from your Heroku dashboard for this app.';
-	break;
+	exit;
 }
 
 $sql =  "INSERT INTO presence_header (network_id, node_mac, version)
