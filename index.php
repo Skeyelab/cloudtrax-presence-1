@@ -7,6 +7,19 @@ $serializedData = serialize($jsondata); //where '$array' is your array
 
 // file_put_contents('latest-raw.txt', $jsondata);
 
+if ($jsondata == "") {
+	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
+	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
+	echo '<br/>';
+	echo 'To access your data, you can get your MySQL credentials from your Heroku dashboard for this app.';
+	exit;
+}
+
+if (hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY')) != $_SERVER['HTTP_SIGNATURE']){
+	break;
+}
+
+
 $network_id = $data['network_id'];
 $node_mac = $data['node_mac'];
 $version = $data['version'];
@@ -30,14 +43,6 @@ $conn = new mysqli($url['host'], $url['user'], $url['pass'], substr($url['path']
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
-if ($jsondata == "") {
-	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
-	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
-	echo '<br/>';
-	echo 'To access your data, you can get your MySQL credentials from your Heroku dashboard for this app.';
-	exit;
-}
 
 $sql =  "INSERT INTO presence_header (network_id, node_mac, version)
 VALUES ('$network_id', '$node_mac', '$version')";
@@ -73,9 +78,9 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 
-echo hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY'));
-echo '<br/>';
-echo $_SERVER['HTTP_SIGNATURE'];
+// echo hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY'));
+// echo '<br/>';
+// echo $_SERVER['HTTP_SIGNATURE'];
 
 
 
