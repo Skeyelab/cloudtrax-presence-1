@@ -18,7 +18,7 @@ if ($jsondata == "") {
 }
 
 if (hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY')) != $_SERVER['HTTP_SIGNATURE']){
-	exit("Invalid Key");
+	break("Invalid Key");
 }
 
 
@@ -79,5 +79,5 @@ if ($conn->query($sql) === TRUE) {
 }
 }
 $conn->close();
-
+exit("Success");
 ?> 
