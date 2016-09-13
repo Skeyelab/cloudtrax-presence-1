@@ -16,6 +16,19 @@ $network_id = $data['network_id'];
 $node_mac = $data['node_mac'];
 $version = $data['version'];
 
+$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
+
+  // Decode urlencoded information in the db connection string
+  $url['user'] = urldecode($url['user']);
+  // Test if database URL has a password.
+  $url['pass'] = isset($url['pass']) ? urldecode($url['pass']) : '';
+  $url['host'] = urldecode($url['host']);
+  $url['path'] = urldecode($url['path']);
+  if (!isset($url['port'])) {
+    $url['port'] = NULL;
+  }
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
