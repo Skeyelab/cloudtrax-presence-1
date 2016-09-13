@@ -32,6 +32,8 @@ if ($conn->connect_error) {
 } 
 
 if ($network_id == 0) {
+	echo $jsondata;
+	echo "------"
 	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
 	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
 	echo '<br/>';
@@ -77,6 +79,6 @@ $conn->close();
 // echo '<br/>';
 // echo $_SERVER['HTTP_SIGNATURE'];
 
-echo $jsondata;
+
 
 ?> 
