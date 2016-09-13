@@ -1,16 +1,11 @@
 <?php 
-$servername = "YOUR SERVER NAME";
-$username = "YOUR DB USERNAME";
-$password = "YOUR DB PASSWORD";
-$dbname = "cloudtrax";
-
 $jsondata = file_get_contents("php://input");
 $data = json_decode($jsondata, true);
 
 $serializedData = serialize($jsondata); //where '$array' is your array
-file_put_contents('latest.txt', $serializedData);
+// file_put_contents('latest.txt', $serializedData);
 
-file_put_contents('latest-raw.txt', $jsondata);
+// file_put_contents('latest-raw.txt', $jsondata);
 
 $network_id = $data['network_id'];
 $node_mac = $data['node_mac'];
