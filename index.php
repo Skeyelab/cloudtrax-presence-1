@@ -19,7 +19,7 @@ if ($jsondata == "") {
 
 if (hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY')) != $_SERVER['HTTP_SIGNATURE']){
 	header("HTTP/1.1 401 Unauthorized");
-	echo "Invalid Key"
+	echo "Invalid Key";
 	exit(1);
 }
 
