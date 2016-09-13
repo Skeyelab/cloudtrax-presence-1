@@ -32,7 +32,8 @@ if ($conn->connect_error) {
 } 
 
 if ($network_id == 0) {
-	echo "No data";
+	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
+	echo 'http://'. $_SERVER['SERVER_NAME'];
 	break;
 }
 

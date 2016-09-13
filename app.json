@@ -7,10 +7,13 @@
       "plan": "cleardb:ignite"
     }
   ],
-  "success_url": "/initial_run.php",
+  "success_url": "/",
   "buildpacks": [
     {
       "url": "heroku/php"
     }
-  ]
+  ],
+  "scripts": {
+  	"postdeploy": "php -f ./initial_run.php"
+  }
 }
