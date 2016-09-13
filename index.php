@@ -30,7 +30,7 @@ $url = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($url['host'], $url['user'], $url['pass'], substr($url['path'], 1));
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
