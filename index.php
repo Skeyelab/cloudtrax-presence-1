@@ -32,7 +32,6 @@ if ($conn->connect_error) {
 } 
 
 if ($jsondata == "") {
-	echo "------";
 	echo "Configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
 	echo 'http://'. $_SERVER['SERVER_NAME'].'<br/>';
 	echo '<br/>';
@@ -74,9 +73,9 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 
-// echo hash_hmac('sha256', $jsondata, 'none');
-// echo '<br/>';
-// echo $_SERVER['HTTP_SIGNATURE'];
+echo hash_hmac('sha256', $jsondata, getenv('CLOUDTRAX_PR_KEY'));
+echo '<br/>';
+echo $_SERVER['HTTP_SIGNATURE'];
 
 
 
