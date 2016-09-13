@@ -8,6 +8,5 @@
       "plan": "cleardb:ignite",
       "as": "CLEARDB"
     }],
-  "success_url": "/initial_run.php",
-
+  "success_url": "/initial_run.php"
 }
