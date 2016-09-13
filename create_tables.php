@@ -88,7 +88,7 @@ $sql3 = "CREATE TABLE IF NOT EXISTS `presence_header` (
 
 
 if ($conn->query($sql1) === TRUE) {
-    echo "access_points Table created successfully";
+    echo "access_points Table created successfully<br/>";
 	$headerid = mysqli_insert_id($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -96,7 +96,7 @@ if ($conn->query($sql1) === TRUE) {
 
 
 if ($conn->query($sql2) === TRUE) {
-    echo "presence_detail Table created successfully";
+    echo "presence_detail Table created successfully<br/>";
   $headerid = mysqli_insert_id($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -104,8 +104,11 @@ if ($conn->query($sql2) === TRUE) {
 
 
 if ($conn->query($sql3) === TRUE) {
-    echo "presence_header Table created successfully";
+    echo "presence_header Table created successfully<br/>";
   $headerid = mysqli_insert_id($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+echo "You can now configure your Cloudtrax Presence Reporting 'Server Location' to:<br/>";
+echo 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
