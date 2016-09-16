@@ -1,4 +1,4 @@
-# cloudtrax-presence
+# cloudtrax-presence-php
 Save data posted from your cloudtrax WiFi network
 
 To deploy:
