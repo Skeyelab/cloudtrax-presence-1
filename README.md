@@ -9,4 +9,4 @@ This will setup Heroku app with an end point to collect Cloudtrax Presence Repor
 You will then configure your Cloudtrax Presence Reporting 'Server Location' to your Heroku app location.
 
 I have a Ruby/MongoDB implementation here:
-[https://github.com/Skeyelab/cloudtrax-presence]
+https://github.com/Skeyelab/cloudtrax-presence
